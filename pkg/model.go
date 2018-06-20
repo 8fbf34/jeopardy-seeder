@@ -1,5 +1,7 @@
 package pkg
 
+import "fmt"
+
 type JeopardyEntry struct {
 	Id		int		`json:"id"`
 	Answer		string		`json:"answer"`
@@ -22,3 +24,10 @@ type Category struct {
 	CluesCount	int	`json:"count"`
 }
 
+func (j JeopardyEntry) String() string {
+	return fmt.Sprintf("{id:%d, question:%s, answer:%s, category:%d}",
+		j.Id,
+		j.Question,
+		j.Answer,
+		j.CategoryId)
+}
