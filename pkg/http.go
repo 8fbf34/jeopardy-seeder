@@ -15,7 +15,7 @@ func Scrape() {
 		httpSem <- 1 // lock http resources
 		go func() {
 			out("Locked resource for request")
-			resp, err := http.Get(urlStr)
+			resp, err := http.Get(config.RestEndpoint)
 			if err != nil {
 				out(err.Error())
 				<-httpSem // release resource
