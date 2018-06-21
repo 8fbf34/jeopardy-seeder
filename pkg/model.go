@@ -31,3 +31,13 @@ func (j JeopardyEntry) String() string {
 		j.Answer,
 		j.CategoryId)
 }
+
+type Config struct {
+	DbName				string	`json:"db_name"`
+	Hostname			string	`json:"hostname"`
+	Port					int			`json:"port"`
+	Username			string	`json:"username"`
+	Password			string	`json:"password"`
+	SslMode				string	`json:"ssl_mode"`
+	RestEndpoint	string	`json:"rest_endpoint"`
+}

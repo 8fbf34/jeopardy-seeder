@@ -7,7 +7,6 @@ import (
 )
 
 var connStr string = "postgres://dev:devvydev@localhost/jeopardy?sslmode=disable"
-var urlStr string = "http://jservice.io/api/random"
 var DB *sql.DB
 var dbChan chan []JeopardyEntry
 var sqlSem chan int
@@ -55,7 +54,7 @@ func SetupSeeder() {
 }
 
 func ConnectDB() {
-	db, err := sql.Open("postgres", connStr)
+	db, err := sql.Open("postgres", config.DbUri())
 	if err != nil {
 		log.Fatal(err)
 	}
